@@ -1,8 +1,11 @@
-import React, { useState } from 'react;';
-import Login from '../Login/Login';
+import React, { useState } from 'react';
 
 const List = () => {
-  return Login(<div></div>);
+  return (
+    <div>
+      <p>List.js</p>
+    </div>
+  );
 };
 
 export default List;
