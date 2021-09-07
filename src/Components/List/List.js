@@ -13,6 +13,12 @@ const List = () => {
     setNewItem('');
   };
 
+  const deleteItem = (index) => {
+    const newTodo = [...todo];
+    newTodo.splice(index, 1);
+    setTodo(newTodo);
+  };
+
   return (
     <div>
       <div>
@@ -27,8 +33,15 @@ const List = () => {
         <button onClick={() => addItem()}>Save</button>
       </div>
       <div>
-        {todo.map((todo) => {
-          return <ListRender todo={todo} />;
+        {todo.map((todo, index) => {
+          return (
+            <ListRender
+              key={index}
+              index={index}
+              todo={todo}
+              deleteItem={deleteItem}
+            />
+          );
         })}
       </div>
     </div>
