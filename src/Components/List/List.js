@@ -9,7 +9,7 @@ const List = () => {
 
   //add items to list
   const addItem = () => {
-    setTodo([...todo, `${newItem}`]);
+    setTodo([...todo, newItem]);
   };
 
   return (
