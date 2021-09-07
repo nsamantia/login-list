@@ -5,11 +5,12 @@ const List = () => {
   const [todo, setTodo] = useState(['walk the dog', 'pet the dog']);
   const [newItem, setNewItem] = useState('');
 
-  useEffect(() => {}, [todo.length]);
+  // useEffect(() => {}, [todo.length]);
 
   //add items to list
   const addItem = () => {
     setTodo([...todo, newItem]);
+    setNewItem('');
   };
 
   return (
@@ -19,6 +20,7 @@ const List = () => {
           type="text"
           name="ToDo"
           placeholder="Add an item to your list"
+          value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         ></input>
         <button onClick={() => addItem()}>Save</button>
