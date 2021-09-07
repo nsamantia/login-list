@@ -20,6 +20,7 @@ const List = () => {
           type="text"
           name="ToDo"
           placeholder="Add an item to your list"
+          maxLength="25"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         ></input>
