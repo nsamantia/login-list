@@ -10,7 +10,7 @@ const ListRender = (props) => {
               type="text"
               placeholder="Edit item to your list"
               maxLength="25"
-              onChange={(e) => props.setNewItem(e.target.value)}
+              onChange={(e) => props.setUpdatedItem(e.target.value)}
             ></input>
             <button onClick={() => props.editItem()}>Save</button>
           </>

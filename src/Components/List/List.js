@@ -4,6 +4,7 @@ import ListRender from '../ListRender/ListRender';
 const List = () => {
   const [todo, setTodo] = useState(['walk the dog', 'pet the dog']);
   const [newItem, setNewItem] = useState('');
+  const [updatedItem, setUpdatedItem] = useState('');
   const [isEdit, setIsEdit] = useState(false);
   // useEffect(() => {}, [todo.length]);
 
@@ -21,7 +22,7 @@ const List = () => {
 
   const editItem = (index) => {
     const newTodo = [...todo];
-    newTodo.splice(index, 1, newItem);
+    newTodo.splice(index, 1, updatedItem);
     setTodo(newTodo);
     setIsEdit(false);
   };
@@ -51,7 +52,8 @@ const List = () => {
               index={index}
               todo={todo}
               newItem={newItem}
-              setNewItem={setNewItem}
+              updatedItem={updatedItem}
+              setUpdatedItem={setUpdatedItem}
               isEdit={isEdit}
               deleteItem={deleteItem}
               editItem={editItem}
