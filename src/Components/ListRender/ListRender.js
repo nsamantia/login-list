@@ -8,7 +8,7 @@ const ListRender = (props) => {
           <>
             <input
               type="text"
-              placeholder="Edit item to your list"
+              placeholder={props.todo}
               maxLength="25"
               onChange={(e) => props.setUpdatedItem(e.target.value)}
             ></input>
