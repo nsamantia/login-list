@@ -6,7 +6,10 @@ const List = () => {
   const [newItem, setNewItem] = useState('');
   const [updatedItem, setUpdatedItem] = useState('');
   const [isEdit, setIsEdit] = useState(false);
-  // useEffect(() => {}, [todo.length]);
+
+  useEffect(() => {
+    localStorage.setItem('todo', JSON.stringify(todo));
+  }, [todo]);
 
   //add items to list
   const addItem = () => {
