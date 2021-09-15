@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const loginUser = (props) => {
+    axios
+      .post(`http://dev.rapptrlabs.com/Tests/scripts/user-login.php`, {
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log('hit');
+        console.log(res.data);
+        props.history.push('/Landing');
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -17,7 +32,7 @@ const Login = () => {
               type="text"
               name="username"
               placeholder="user@rapptrlabs.com"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
           </label>
 
@@ -30,10 +45,10 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </label>
+          <div>
+            <input onClick={() => loginUser()} type="submit" value="Login" />
+          </div>
         </form>
-      </div>
-      <div>
-        <button>Login</button>
       </div>
     </div>
   );
